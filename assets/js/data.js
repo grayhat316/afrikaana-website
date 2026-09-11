@@ -425,7 +425,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "14 minutes",
       serves: "1 person",
-      img: "https://i.pinimg.com/736x/9e/e5/a2/9ee5a2aaaea81b8b683bf598ca9cc00e.jpg",
+      img: "https://i.pinimg.com/originals/8f/58/58/8f58582909b5cbec99ca1f526df1162a.jpg",
     },
     {
       id: "ndengu-chapati",
@@ -538,7 +538,7 @@ const AFRIKAANA = {
       spice: "Medium",
       prep: "13 minutes",
       serves: "1 person",
-      img: "https://i.pinimg.com/originals/8f/58/58/8f58582909b5cbec99ca1f526df1162a.jpg",
+      img: "https://i.pinimg.com/736x/9e/e5/a2/9ee5a2aaaea81b8b683bf598ca9cc00e.jpg",
     },
     {
       id: "samosa",
@@ -555,21 +555,7 @@ const AFRIKAANA = {
       img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=75",
     },
 
-    /* ---------- Desserts ---------- */
-    {
-      id: "kaimati",
-      name: "Kaimati",
-      category: "desserts",
-      price: 250,
-      short: "Fried dough balls in cardamom syrup.",
-      long: "Small dough balls fried and dropped into warm cardamom syrup so they soak it up. Sweet, soft in the middle. Common at the coast, less so in Eldoret, which is a shame.",
-      tags: ["Popular", "Vegetarian"],
-      allergens: ["Gluten"],
-      spice: "None",
-      prep: "10 minutes",
-      serves: "6 pieces",
-      img: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=75",
-    },{
+    /* ---------- Desserts ---------- */{
       id: "fruit-platter",
       name: "Fruit Platter",
       category: "desserts",
