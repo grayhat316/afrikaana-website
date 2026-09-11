@@ -284,7 +284,7 @@ home = build(
         </div>
         <div class="dish-grid">
           <div class="dish-card">
-            <a href="/dish?id=pilau-ya-kuku" class="dish-card-media"><img src="https://images.unsplash.com/photo-1775039983787-3fe9b416c545?w=800&q=75" alt="Pilau ya Kuku" loading="lazy"></a>
+            <a href="/dish?id=pilau-ya-kuku" class="dish-card-media"><img src="https://images.unsplash.com/photo-1634324092536-74480096b939?w=800&q=75" alt="Pilau ya Kuku" loading="lazy"></a>
             <div class="dish-card-body">
               <div class="dish-card-top"><h3 class="dish-card-title"><a href="/dish?id=pilau-ya-kuku">Pilau ya Kuku</a></h3><span class="dish-price">KES 750</span></div>
               <p class="dish-card-desc">Spiced rice cooked with chicken, served with kachumbari. The plate people come back for.</p>
