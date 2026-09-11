@@ -54,16 +54,40 @@
         <div class="page-head">
           <h1>Gallery</h1>
         </div>
+        <div class="menu-controls" style="margin-bottom:24px">
+          <div class="cat-tabs">
+            <button class="cat-tab" aria-pressed="true" onclick="
+              document.querySelectorAll('.gallery-item').forEach(function(i){i.style.display=''});
+              document.querySelectorAll('.cat-tab').forEach(function(t){t.setAttribute('aria-pressed','false')});
+              this.setAttribute('aria-pressed','true');
+            ">All</button>
+            <button class="cat-tab" aria-pressed="false" onclick="
+              document.querySelectorAll('.gallery-item').forEach(function(i){i.style.display=i.dataset.cat==='interior'?'':'none'});
+              document.querySelectorAll('.cat-tab').forEach(function(t){t.setAttribute('aria-pressed','false')});
+              this.setAttribute('aria-pressed','true');
+            ">The Dining Room</button>
+            <button class="cat-tab" aria-pressed="false" onclick="
+              document.querySelectorAll('.gallery-item').forEach(function(i){i.style.display=i.dataset.cat==='dishes'?'':'none'});
+              document.querySelectorAll('.cat-tab').forEach(function(t){t.setAttribute('aria-pressed','false')});
+              this.setAttribute('aria-pressed','true');
+            ">Dishes & Plates</button>
+            <button class="cat-tab" aria-pressed="false" onclick="
+              document.querySelectorAll('.gallery-item').forEach(function(i){i.style.display=i.dataset.cat==='events'?'':'none'});
+              document.querySelectorAll('.cat-tab').forEach(function(t){t.setAttribute('aria-pressed','false')});
+              this.setAttribute('aria-pressed','true');
+            ">Events & Catering</button>
+          </div>
+        </div>
         <div class="gallery-grid">
-          <button class="gallery-item" data-src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80" data-alt="The dining room"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=75" alt="The dining room" loading="lazy"></button>
-          <button class="gallery-item" data-src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80" data-alt="Main service counter"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=75" alt="Main service counter" loading="lazy"></button>
-          <button class="gallery-item" data-src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1200&q=80" data-alt="Evening seating"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&q=75" alt="Evening seating" loading="lazy"></button>
-          <button class="gallery-item" data-src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=80" data-alt="Pilau pot"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=75" alt="Pilau pot" loading="lazy"></button>
-          <button class="gallery-item" data-src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=80" data-alt="Nyama choma on the grill"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=75" alt="Nyama choma on the grill" loading="lazy"></button>
-          <button class="gallery-item" data-src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1200&q=80" data-alt="Kuku kienyeji"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=75" alt="Kuku kienyeji" loading="lazy"></button>
-          <button class="gallery-item" data-src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1200&q=80" data-alt="Greens from the market"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=75" alt="Greens from the market" loading="lazy"></button>
-          <button class="gallery-item" data-src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1200&q=80" data-alt="Breakfast service"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=75" alt="Breakfast service" loading="lazy"></button>
-          <button class="gallery-item" data-src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=80" data-alt="Samaki wa kupaka"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=75" alt="Samaki wa kupaka" loading="lazy"></button>
+          <button class="gallery-item" data-cat="interior" data-src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80" data-alt="The dining room"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=75" alt="The dining room" loading="lazy"></button>
+          <button class="gallery-item" data-cat="interior" data-src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80" data-alt="Main service counter"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=75" alt="Main service counter" loading="lazy"></button>
+          <button class="gallery-item" data-cat="interior" data-src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1200&q=80" data-alt="Evening seating"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&q=75" alt="Evening seating" loading="lazy"></button>
+          <button class="gallery-item" data-cat="dishes" data-src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=80" data-alt="Pilau pot"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=75" alt="Pilau pot" loading="lazy"></button>
+          <button class="gallery-item" data-cat="dishes" data-src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=80" data-alt="Nyama choma on the grill"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=75" alt="Nyama choma on the grill" loading="lazy"></button>
+          <button class="gallery-item" data-cat="dishes" data-src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1200&q=80" data-alt="Kuku kienyeji"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=75" alt="Kuku kienyeji" loading="lazy"></button>
+          <button class="gallery-item" data-cat="dishes" data-src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1200&q=80" data-alt="Greens from the market"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=75" alt="Greens from the market" loading="lazy"></button>
+          <button class="gallery-item" data-cat="events" data-src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1200&q=80" data-alt="Breakfast service"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=75" alt="Breakfast service" loading="lazy"></button>
+          <button class="gallery-item" data-cat="events" data-src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=80" data-alt="Catering setup"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=75" alt="Catering setup" loading="lazy"></button>
         </div>
       </div>
     </section>
@@ -110,8 +134,9 @@
           <ul>
             <li>Kabiyet House, Oginga Odinga St</li>
             <li>Eldoret CBD, Kenya</li>
+            <li><a href="tel:+254700000000">0700 000 000</a></li>
+            <li><a href="https://wa.me/254700000000">WhatsApp</a></li>
             <li>Open 24 hours</li>
-            <li><a href="/visit">Visit us</a></li>
           </ul>
         </div>
       </div>
