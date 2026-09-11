@@ -292,7 +292,7 @@ home = build(
             </div>
           </div>
           <div class="dish-card">
-            <a href="/dish?id=nyama-choma-ngombe" class="dish-card-media"><img src="https://images.unsplash.com/photo-1708388064378-fa23d208909b?w=800&q=75" alt="Nyama Choma" loading="lazy"></a>
+            <a href="/dish?id=nyama-choma-ngombe" class="dish-card-media"><img src="https://images.unsplash.com/photo-1708615017161-2eff302d0389?w=800&q=75" alt="Nyama Choma" loading="lazy"></a>
             <div class="dish-card-body">
               <div class="dish-card-top"><h3 class="dish-card-title"><a href="/dish?id=nyama-choma-ngombe">Nyama Choma ya Ng'ombe</a></h3><span class="dish-price">KES 950</span></div>
               <p class="dish-card-desc">Half kilo of beef ribs grilled over charcoal. Served with ugali and kachumbari.</p>
@@ -300,7 +300,7 @@ home = build(
             </div>
           </div>
           <div class="dish-card">
-            <a href="/dish?id=samaki-kupaka" class="dish-card-media"><img src="https://images.unsplash.com/photo-1777891257650-5dedbba89dd4?w=800&q=75" alt="Samaki wa Kupaka" loading="lazy"></a>
+            <a href="/dish?id=samaki-kupaka" class="dish-card-media"><img src="https://images.unsplash.com/photo-1665401015549-712c0dc5ef85?w=800&q=75" alt="Samaki wa Kupaka" loading="lazy"></a>
             <div class="dish-card-body">
               <div class="dish-card-top"><h3 class="dish-card-title"><a href="/dish?id=samaki-kupaka">Samaki wa Kupaka</a></h3><span class="dish-price">KES 1,250</span></div>
               <p class="dish-card-desc">Whole tilapia grilled, finished in coconut and tamarind sauce. Order it if you have time.</p>

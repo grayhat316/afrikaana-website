@@ -453,7 +453,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "15 minutes",
       serves: "1 person",
-      img: "https://images.unsplash.com/photo-1603496987674-79600a000f55?w=800&q=75",
+      img: "https://media.istockphoto.com/id/1184696894/photo/chickpeas-in-pretty-white-bowl-for-ifter.webp?a=1&b=1&s=612x612&w=0&k=20&c=2nxoui72nExcHy_CJPjPU_u3Czph_6cS6kQR1FnD7Ik=",
     },
     {
       id: "kachumbari-chapati",
