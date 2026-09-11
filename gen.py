@@ -283,21 +283,24 @@ home = build(
           <a href="/menu" class="head-link">Full menu &rarr;</a>
         </div>
         <div class="dish-grid">
-          <div class="dish-card" style="border-left: 3px solid var(--ochre); padding-left: 16px;">
+          <div class="dish-card">
+            <a href="/dish?id=pilau-ya-kuku" class="dish-card-media"><img src="https://images.unsplash.com/photo-1775039983787-3fe9b416c545?w=800&q=75" alt="Pilau ya Kuku" loading="lazy"></a>
             <div class="dish-card-body">
               <div class="dish-card-top"><h3 class="dish-card-title"><a href="/dish?id=pilau-ya-kuku">Pilau ya Kuku</a></h3><span class="dish-price">KES 750</span></div>
               <p class="dish-card-desc">Spiced rice cooked with chicken, served with kachumbari. The plate people come back for.</p>
               <div class="dish-card-foot"><div class="tags"><span class="tag tag-ochre">Chef's Pick</span><span class="tag tag-ochre">Popular</span></div><a href="/dish?id=pilau-ya-kuku" class="btn btn-outline btn-sm">View</a></div>
             </div>
           </div>
-          <div class="dish-card" style="border-left: 3px solid var(--ochre); padding-left: 16px;">
+          <div class="dish-card">
+            <a href="/dish?id=nyama-choma-ngombe" class="dish-card-media"><img src="https://images.unsplash.com/photo-1708388064378-fa23d208909b?w=800&q=75" alt="Nyama Choma" loading="lazy"></a>
             <div class="dish-card-body">
               <div class="dish-card-top"><h3 class="dish-card-title"><a href="/dish?id=nyama-choma-ngombe">Nyama Choma ya Ng'ombe</a></h3><span class="dish-price">KES 950</span></div>
               <p class="dish-card-desc">Half kilo of beef ribs grilled over charcoal. Served with ugali and kachumbari.</p>
               <div class="dish-card-foot"><div class="tags"><span class="tag tag-ochre">Popular</span></div><a href="/dish?id=nyama-choma-ngombe" class="btn btn-outline btn-sm">View</a></div>
             </div>
           </div>
-          <div class="dish-card" style="border-left: 3px solid var(--ochre); padding-left: 16px;">
+          <div class="dish-card">
+            <a href="/dish?id=samaki-kupaka" class="dish-card-media"><img src="https://images.unsplash.com/photo-1777891257650-5dedbba89dd4?w=800&q=75" alt="Samaki wa Kupaka" loading="lazy"></a>
             <div class="dish-card-body">
               <div class="dish-card-top"><h3 class="dish-card-title"><a href="/dish?id=samaki-kupaka">Samaki wa Kupaka</a></h3><span class="dish-price">KES 1,250</span></div>
               <p class="dish-card-desc">Whole tilapia grilled, finished in coconut and tamarind sauce. Order it if you have time.</p>
