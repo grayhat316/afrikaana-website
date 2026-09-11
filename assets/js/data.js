@@ -81,7 +81,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "5 minutes",
       serves: "1 person",
-      img: IMG + "photo-1567620905732-2d1ec7ab7445?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=75",
     },
     {
       id: "uji-power",
@@ -95,7 +95,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "6 minutes",
       serves: "1 person",
-      img: IMG + "photo-1482049016688-2d3e1b311543?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=75",
     },
     {
       id: "mandazi-chai",
@@ -109,7 +109,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "6 minutes",
       serves: "1 to 2 people",
-      img: IMG + "photo-1484723091739-30a097e8f929?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=75",
     },
     {
       id: "spanish-omelette",
@@ -123,7 +123,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "12 minutes",
       serves: "1 person",
-      img: IMG + "photo-1533089860892-a7c6f0a88666?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=75",
     },
     {
       id: "kienyeji-eggs",
@@ -137,7 +137,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "10 minutes",
       serves: "1 person",
-      img: IMG + "photo-1504754524776-8f4f37790ca0?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=75",
     },
 
     /* ---------- Swahili Dishes ---------- */
@@ -153,7 +153,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "20 minutes",
       serves: "1 person",
-      img: IMG + "photo-1596040033229-a9821ebd058d?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=75",
     },
     {
       id: "biryani-nyama",
@@ -167,7 +167,7 @@ const AFRIKAANA = {
       spice: "Medium",
       prep: "22 minutes",
       serves: "1 person",
-      img: IMG + "photo-1512058564366-18510be2db19?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=75",
     },
     {
       id: "wali-nazi-maharage",
@@ -181,7 +181,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "14 minutes",
       serves: "1 person",
-      img: IMG + "photo-1603133872878-684f208fb84b?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=75",
     },
     {
       id: "samaki-kupaka",
@@ -195,7 +195,7 @@ const AFRIKAANA = {
       spice: "Medium",
       prep: "28 minutes",
       serves: "1 to 2 people",
-      img: IMG + "photo-1559339352-11d035aa65de?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=75",
     },
     {
       id: "kuku-kupaka",
@@ -209,7 +209,7 @@ const AFRIKAANA = {
       spice: "Medium",
       prep: "26 minutes",
       serves: "1 to 2 people",
-      img: IMG + "photo-1521305916504-4a1121188589?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=75",
     },
     {
       id: "matoke-nyama",
@@ -223,7 +223,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "24 minutes",
       serves: "1 person",
-      img: IMG + "photo-1476224203421-9ac39bcb3327?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=75",
     },
     {
       id: "viazi-karai",
@@ -237,7 +237,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "12 minutes",
       serves: "1 person",
-      img: IMG + "photo-1606491956689-2ea866880c84?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=75",
     },
 
     /* ---------- Grills ---------- */
@@ -253,7 +253,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "30 minutes",
       serves: "1 to 2 people",
-      img: IMG + "photo-1544025162-d76694265947?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=75",
     },
     {
       id: "kuku-kienyeji-choma",
@@ -267,7 +267,7 @@ const AFRIKAANA = {
       spice: "Medium",
       prep: "35 minutes",
       serves: "1 to 2 people",
-      img: IMG + "photo-1555939594-58d7cb561ad1?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=75",
     },
     {
       id: "mishkaki",
@@ -281,7 +281,7 @@ const AFRIKAANA = {
       spice: "Hot",
       prep: "18 minutes",
       serves: "1 person",
-      img: IMG + "photo-1585032226651-759b368d7246?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=75",
     },
     {
       id: "mbuzi-choma",
@@ -295,7 +295,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "32 minutes",
       serves: "1 to 2 people",
-      img: IMG + "photo-1544148103-0773bf10d330?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=800&q=75",
     },
     {
       id: "chicken-wings",
@@ -309,7 +309,7 @@ const AFRIKAANA = {
       spice: "Hot",
       prep: "22 minutes",
       serves: "1 to 2 people",
-      img: IMG + "photo-1521305916504-4a1121188589?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=75",
     },
     {
       id: "grilled-tilapia",
@@ -323,7 +323,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "26 minutes",
       serves: "1 person",
-      img: IMG + "photo-1467003909585-2f8a72700288?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=75",
     },
 
     /* ---------- Rice & Pilau ---------- */
@@ -339,7 +339,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "10 minutes",
       serves: "1 person",
-      img: IMG + "photo-1512058564366-18510be2db19?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=800&q=75",
     },
     {
       id: "pilau-nyama",
@@ -353,7 +353,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "20 minutes",
       serves: "1 person",
-      img: IMG + "photo-1596040033229-a9821ebd058d?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=800&q=75",
     },
     {
       id: "biryani-kuku",
@@ -367,7 +367,7 @@ const AFRIKAANA = {
       spice: "Medium",
       prep: "22 minutes",
       serves: "1 person",
-      img: IMG + "photo-1546069901-ba9599a7e63c?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=800&q=75",
     },
     {
       id: "coconut-rice",
@@ -381,7 +381,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "14 minutes",
       serves: "1 person",
-      img: IMG + "photo-1603133872878-684f208fb84b?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=800&q=75",
     },
     {
       id: "veg-fried-rice",
@@ -395,7 +395,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "11 minutes",
       serves: "1 person",
-      img: IMG + "photo-1512058564366-18510be2db19?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=800&q=75",
     },
 
     /* ---------- Vegetarian ---------- */
@@ -411,7 +411,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "12 minutes",
       serves: "1 person",
-      img: IMG + "photo-1540189549336-e6e99c3679fe?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=75",
     },
     {
       id: "ugali-managu",
@@ -425,7 +425,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "14 minutes",
       serves: "1 person",
-      img: IMG + "photo-1490645935967-10de6ba17061?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=75",
     },
     {
       id: "ndengu-chapati",
@@ -439,7 +439,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "16 minutes",
       serves: "1 person",
-      img: IMG + "photo-1473093295043-cdd812d0e601?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=75",
     },
     {
       id: "githeri",
@@ -453,7 +453,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "15 minutes",
       serves: "1 person",
-      img: IMG + "photo-1504674900247-0877df9cc836?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=75",
     },
     {
       id: "kachumbari-chapati",
@@ -467,7 +467,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "8 minutes",
       serves: "1 person",
-      img: IMG + "photo-1563379926898-05f4575a45d8?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=75",
     },
     {
       id: "veg-curry",
@@ -481,7 +481,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "18 minutes",
       serves: "1 person",
-      img: IMG + "photo-1559847844-5315695dadae?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=75",
     },
 
     /* ---------- Snacks & Sides ---------- */
@@ -497,7 +497,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "6 minutes",
       serves: "1 piece",
-      img: IMG + "photo-1476224203421-9ac39bcb3327?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=800&q=75",
     },
     {
       id: "sambusa",
@@ -511,7 +511,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "12 minutes",
       serves: "3 pieces",
-      img: IMG + "photo-1606491956689-2ea866880c84?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=800&q=75",
     },
     {
       id: "kachumbari",
@@ -525,7 +525,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "5 minutes",
       serves: "1 person",
-      img: IMG + "photo-1563379926898-05f4575a45d8?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=800&q=75",
     },
     {
       id: "chips-masala",
@@ -539,7 +539,7 @@ const AFRIKAANA = {
       spice: "Medium",
       prep: "14 minutes",
       serves: "1 person",
-      img: IMG + "photo-1514933651103-005eec06c04b?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=800&q=75",
     },
     {
       id: "bhajia",
@@ -553,7 +553,7 @@ const AFRIKAANA = {
       spice: "Medium",
       prep: "13 minutes",
       serves: "1 person",
-      img: IMG + "photo-1606491956689-2ea866880c84?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=800&q=75",
     },
     {
       id: "samosa",
@@ -567,7 +567,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "12 minutes",
       serves: "3 pieces",
-      img: IMG + "photo-1585032226651-759b368d7246?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=800&q=75",
     },
 
     /* ---------- Desserts ---------- */
@@ -583,7 +583,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "10 minutes",
       serves: "6 pieces",
-      img: IMG + "photo-1550966871-3ed3cdb5ed0c?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=75",
     },
     {
       id: "halwa",
@@ -597,7 +597,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "8 minutes",
       serves: "2 people",
-      img: IMG + "photo-1592861956120-e524fc739696?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=75",
     },
     {
       id: "fruit-platter",
@@ -611,7 +611,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "10 minutes",
       serves: "2 people",
-      img: IMG + "photo-1490474418585-ba9bad8fd0ea?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=75",
     },
     {
       id: "ice-cream",
@@ -625,7 +625,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "3 minutes",
       serves: "1 person",
-      img: IMG + "photo-1470337458703-46ad1756a187?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=75",
     },
 
     /* ---------- Drinks & Coffee ---------- */
@@ -641,7 +641,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "6 minutes",
       serves: "1 cup",
-      img: IMG + "photo-1495474472287-4d71bcdd2085?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=75",
     },
     {
       id: "chai-tangawizi",
@@ -655,7 +655,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "7 minutes",
       serves: "1 cup",
-      img: IMG + "photo-1466978913421-dad2ebd01d17?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=75",
     },
     {
       id: "passion-juice",
@@ -669,7 +669,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "5 minutes",
       serves: "1 glass",
-      img: IMG + "photo-1505253716362-afaea1d3d1af?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=75",
     },
     {
       id: "mango-lassi",
@@ -683,7 +683,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "5 minutes",
       serves: "1 glass",
-      img: IMG + "photo-1497534446932-c925b458314e?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=75",
     },
     {
       id: "avocado-juice",
@@ -697,7 +697,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "5 minutes",
       serves: "1 glass",
-      img: IMG + "photo-1432139555190-58524dae6a55?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=75",
     },
     {
       id: "soda",
@@ -711,7 +711,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "1 minute",
       serves: "300ml",
-      img: IMG + "photo-1585032226651-759b368d7246?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=75",
     },
     {
       id: "water",
@@ -725,7 +725,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "1 minute",
       serves: "500ml",
-      img: IMG + "photo-1544148103-0773bf10d330?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=75",
     },
   ],
 
