@@ -95,7 +95,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "6 minutes",
       serves: "1 person",
-      img: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=800&q=75",
+      img: "https://toasterding.com/wp-content/uploads/2025/10/479309300_654212467132220_8633601716764750555_n.jpg",
     },
     {
       id: "mandazi-chai",
@@ -109,7 +109,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "6 minutes",
       serves: "1 to 2 people",
-      img: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=75",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNXSwZ8RKBmUVG-1TZcX6Yy-QPCfDMTleqyV8La8w4Ql2Ub4rFxV4TK6k",
     },
     {
       id: "spanish-omelette",
@@ -195,7 +195,7 @@ const AFRIKAANA = {
       spice: "Medium",
       prep: "28 minutes",
       serves: "1 to 2 people",
-      img: "https://images.unsplash.com/photo-1777891257650-5dedbba89dd4?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1665401015549-712c0dc5ef85?w=800&q=75",
     },
     {
       id: "kuku-kupaka",
@@ -223,7 +223,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "24 minutes",
       serves: "1 person",
-      img: "https://images.unsplash.com/photo-1775039983787-3fe9b416c545?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1652545297020-f5e8ad779eb4?w=800&q=75",
     },
     {
       id: "viazi-karai",
@@ -253,7 +253,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "30 minutes",
       serves: "1 to 2 people",
-      img: "https://images.unsplash.com/photo-1708388064378-fa23d208909b?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1708615017161-2eff302d0389?w=800&q=75",
     },
     {
       id: "kuku-kienyeji-choma",
@@ -295,7 +295,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "32 minutes",
       serves: "1 to 2 people",
-      img: "https://images.unsplash.com/photo-1708388064378-fa23d208909b?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1628294896516-344152572ee8?w=800&q=75",
     },
     {
       id: "chicken-wings",
@@ -323,7 +323,7 @@ const AFRIKAANA = {
       spice: "Mild",
       prep: "26 minutes",
       serves: "1 person",
-      img: "https://images.unsplash.com/photo-1777891257650-5dedbba89dd4?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1765265432611-17d3f2da2d5d?w=800&q=75",
     },
 
     /* ---------- Rice & Pilau ---------- */
@@ -453,7 +453,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "15 minutes",
       serves: "1 person",
-      img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1603496987674-79600a000f55?w=800&q=75",
     },
     {
       id: "kachumbari-chapati",
@@ -711,7 +711,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "1 minute",
       serves: "300ml",
-      img: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=800&q=75",
     },
     {
       id: "water",
@@ -725,7 +725,7 @@ const AFRIKAANA = {
       spice: "None",
       prep: "1 minute",
       serves: "500ml",
-      img: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=800&q=75",
+      img: "https://images.unsplash.com/photo-1536939459926-301728717817?w=800&q=75",
     },
   ],
 

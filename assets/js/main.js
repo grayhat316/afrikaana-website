@@ -183,13 +183,9 @@
         '<div class="tags">' +
         tags +
         "</div>" +
-        '<button class="btn btn-outline btn-sm" onclick="event.preventDefault(); Cart.add(\'' +
+        '<a href="/dish?id=' +
         d.id +
-        "', 1); Cart.showToast('" +
-        d.name.replace(/'/g, "\\'") +
-        "', '" +
-        d.id +
-        "'); return false;\">Add</button>" +
+        '" class="btn btn-outline btn-sm">View</a>' +
         "</div>" +
         "</div>" +
         "</div>";
