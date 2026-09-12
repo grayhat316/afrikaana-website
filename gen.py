@@ -39,7 +39,7 @@ HEAD = """<!doctype html>
         {nav_links}
       </nav>
       <div class="header-actions">
-        <a href="/order" class="cart-link" aria-label="View order" style="visibility:hidden">
+        <a href="/order" class="cart-link" aria-label="View order">
           <span class="label">Order</span>
           <span class="cart-count">0</span>
         </a>
@@ -341,6 +341,104 @@ home = build(
               <p class="dish-card-desc">Sukuma wiki, managu, tomatoes and avocado come in before six.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+    <section class="band-dark">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Order in three steps</h2>
+          <a href="/menu" class="head-link">Start with the menu &rarr;</a>
+        </div>
+        <div class="grid grid-3">
+          <div class="step-card">
+            <span class="step-num">01</span>
+            <h3>Pick your dishes</h3>
+            <p>Browse the full menu, open any dish to read what is in it, then add it to your order. Add as many as you like.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">02</span>
+            <h3>Send it on WhatsApp</h3>
+            <p>Your order goes straight to the counter on WhatsApp, with the items, quantities and total already written out for you.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">03</span>
+            <h3>Collect or get it delivered</h3>
+            <p>Pick it up at any of the three branches, or have it brought to you inside Eldoret town. Pay by M-Pesa, cash or card.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap">
+        <div class="media-split">
+          <div>
+            <span class="eyebrow">Open 24 hours</span>
+            <h2>Open when the town has closed</h2>
+            <p>Two of our three branches never close. Night shift finishing at 4am, a bus pulling into the stage at midnight, or an early start before a long drive: there is always a kitchen on and a grill still hot.</p>
+            <p>Breakfast begins at 5am with chai and mandazi. The charcoal runs late. The menu does not shrink after dark, and the price on the board is the price you pay.</p>
+            <a href="/branches" class="btn btn-outline">See branches and hours</a>
+          </div>
+          <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=900&q=75" alt="Evening seating at Afrikaana" loading="lazy">
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Three branches, one kitchen standard</h2>
+          <a href="/branches" class="head-link">All branches &rarr;</a>
+        </div>
+        <div class="grid grid-3">
+          <div class="dish-card">
+            <div class="dish-card-body">
+              <div class="dish-card-top"><h3 class="dish-card-title"><a href="/branches">Kabiyet House</a></h3></div>
+              <p class="dish-card-desc">Oginga Odinga Street, opposite Equity Main Branch. Our main kitchen and the busiest counter in the group.</p>
+              <div class="tags"><span class="tag tag-ochre">Open 24 hours</span></div>
+            </div>
+          </div>
+          <div class="dish-card">
+            <div class="dish-card-body">
+              <div class="dish-card-top"><h3 class="dish-card-title"><a href="/branches">Kenya Street</a></h3></div>
+              <p class="dish-card-desc">Off Kenyatta Street, behind Fims Building. Closest to the matatu stage, and the easiest stop for a quick plate.</p>
+              <div class="tags"><span class="tag">6am to 11pm</span></div>
+            </div>
+          </div>
+          <div class="dish-card">
+            <div class="dish-card-body">
+              <div class="dish-card-top"><h3 class="dish-card-title"><a href="/branches">Uganda Road</a></h3></div>
+              <p class="dish-card-desc">Near the Easy Coach stage. Busy with travellers through the night, so the grill stays on till morning.</p>
+              <div class="tags"><span class="tag tag-ochre">Open 24 hours</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap">
+        <div class="media-split">
+          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=900&q=75" alt="Packing a takeaway order" loading="lazy">
+          <div>
+            <span class="eyebrow">Takeaway & delivery</span>
+            <h2>Packed so it still tastes right</h2>
+            <p>Rice goes in lined containers so it does not steam itself soft. Grills travel separately from the kachumbari. Sauces are sealed and packed on top, never underneath.</p>
+            <p>Delivery runs inside Eldoret town. Outside the CBD we will tell you the charge before we send anything, and we would rather decline an order than send you cold food.</p>
+            <a href="/menu" class="btn btn-primary">Start an order</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Inside Afrikaana</h2>
+          <a href="/gallery" class="head-link">Full gallery &rarr;</a>
+        </div>
+        <div class="grid grid-4" style="gap:12px">
+          <a href="/gallery" class="dish-card-media" style="aspect-ratio:1/1"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=75" alt="The dining room" loading="lazy"></a>
+          <a href="/gallery" class="dish-card-media" style="aspect-ratio:1/1"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=75" alt="Nyama choma on the grill" loading="lazy"></a>
+          <a href="/gallery" class="dish-card-media" style="aspect-ratio:1/1"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=75" alt="Kuku kienyeji" loading="lazy"></a>
+          <a href="/gallery" class="dish-card-media" style="aspect-ratio:1/1"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=75" alt="Breakfast service" loading="lazy"></a>
         </div>
       </div>
     </section>

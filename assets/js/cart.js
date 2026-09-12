@@ -86,11 +86,23 @@ var Cart = (function () {
     var el = document.querySelector(".cart-count");
     if (!el) return;
     el.textContent = c;
-
     var wrapper = document.querySelector(".cart-link");
     if (!wrapper) return;
-    wrapper.style.visibility = c > 0 ? "" : "hidden";
-    wrapper.setAttribute("aria-label", c > 0 ? "Cart, " + c + " items" : "Cart is empty");
+
+    if (c > 0) {
+      wrapper.classList.add("has-items");
+    } else {
+      wrapper.classList.remove("has-items");
+    }
+
+    /* Pulse the header order link so the change is impossible to miss */
+    wrapper.classList.remove("bump");
+    void wrapper.offsetWidth;
+    wrapper.classList.add("bump");
+    clearTimeout(wrapper._bumpTimer);
+    wrapper._bumpTimer = setTimeout(function () {
+      wrapper.classList.remove("bump");
+    }, 700);
   }
 
   function showToast(name, dishId) {
@@ -104,7 +116,7 @@ var Cart = (function () {
     clearTimeout(t._timer);
     t._timer = setTimeout(function () {
       t.classList.remove("show");
-    }, 3600);
+    }, 5000);
   }
 
   function buildWhatsAppMsg(form) {
@@ -153,12 +165,30 @@ var Cart = (function () {
     if (!el) return;
     var cart = get();
 
+    var proceedBtn = document.querySelector('a[href="/checkout"]');
+    var totals = el.parentElement
+      ? el.parentElement.querySelector(".totals")
+      : null;
+
     if (cart.length === 0) {
-      el.closest(".section").innerHTML =
+      el.innerHTML =
         '<div class="empty"><h3>Your order is empty</h3><p>Browse the menu and add some dishes first.</p><a href="/menu" class="btn btn-primary">See the menu</a></div>';
-      var chosen = document.getElementById("pickup-choice");
-      if (chosen) chosen.style.display = "none";
+      if (totals) totals.style.display = "none";
+      if (proceedBtn) {
+        proceedBtn.classList.add("disabled");
+        proceedBtn.setAttribute("aria-disabled", "true");
+        proceedBtn.style.pointerEvents = "none";
+        proceedBtn.style.opacity = "0.5";
+      }
       return;
+    }
+
+    if (totals) totals.style.display = "";
+    if (proceedBtn) {
+      proceedBtn.classList.remove("disabled");
+      proceedBtn.removeAttribute("aria-disabled");
+      proceedBtn.style.pointerEvents = "";
+      proceedBtn.style.opacity = "";
     }
 
     var rows = "";
@@ -201,9 +231,9 @@ var Cart = (function () {
     }
 
     el.innerHTML =
-      '<thead><tr><th>Item</th><th>Quantity</th><th>Line total</th><th></th></tr></thead><tbody>' +
+      '<table class="order-table"><thead><tr><th>Item</th><th>Quantity</th><th>Line total</th><th></th></tr></thead><tbody>' +
       rows +
-      "</tbody>";
+      "</tbody></table>";
 
     var tot = total();
     document.getElementById("order-subtotal").textContent = AFRIKAANA.money(tot);
@@ -215,6 +245,21 @@ var Cart = (function () {
     var el = document.getElementById("checkout-summary");
     if (!el) return;
     var cart = get();
+
+    var form = document.getElementById("checkout-form");
+    var formCol = form ? form.parentElement : null;
+
+    if (cart.length === 0) {
+      el.innerHTML =
+        '<div class="empty"><h3>Nothing to check out</h3><p>Your order is empty. Add a dish and come back.</p><a href="/menu" class="btn btn-primary">See the menu</a></div>';
+      if (formCol) formCol.style.display = "none";
+      else if (form) form.style.display = "none";
+      return;
+    }
+
+    if (formCol) formCol.style.display = "";
+    if (form) form.style.display = "";
+
     var items = "";
     for (var i = 0; i < cart.length; i++) {
       var line = cart[i];

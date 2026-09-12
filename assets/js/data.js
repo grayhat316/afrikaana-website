@@ -546,7 +546,7 @@ const AFRIKAANA = {
       category: "snacks",
       price: 250,
       short: "Three vegetable samosa.",
-      long: "Pastry filled with spiced potato and peas, fried until golden. Lighter than the beef sambusa.",
+      long: "Pastry filled with spiced potato and peas, folded by hand and fried until golden. Crisp outside, soft in the middle.",
       tags: ["Vegetarian"],
       allergens: ["Gluten"],
       spice: "Mild",
@@ -555,7 +555,8 @@ const AFRIKAANA = {
       img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=75",
     },
 
-    /* ---------- Desserts ---------- */{
+    /* ---------- Desserts ---------- */
+    {
       id: "fruit-platter",
       name: "Fruit Platter",
       category: "desserts",
@@ -860,25 +861,25 @@ const AFRIKAANA = {
       name: "Head Chef",
       role: "Kitchen",
       bio: "Runs the grill and the pilau pot. Has been with the kitchen since it opened.",
-      img: IMG + "photo-1583394838336-acd977736f90?w=600&q=75",
+      img: "https://api.dicebear.com/9.x/initials/svg?seed=Head%20Chef&backgroundColor=a34a2a&textColor=ffffff&fontWeight=700",
     },
     {
       name: "Sous Chef",
       role: "Kitchen",
       bio: "Handles the Swahili section. Knows the coastal dishes better than anyone here.",
-      img: IMG + "photo-1577219491135-ce391730fb2c?w=600&q=75",
+      img: "https://api.dicebear.com/9.x/initials/svg?seed=Sous%20Chef&backgroundColor=2e4a3c&textColor=ffffff&fontWeight=700",
     },
     {
       name: "Floor Manager",
       role: "Service",
       bio: "Runs the dining room and the delivery orders. Has never lost an order.",
-      img: IMG + "photo-1560250097-0b93528c311a?w=600&q=75",
+      img: "https://api.dicebear.com/9.x/initials/svg?seed=Floor%20Manager&backgroundColor=a34a2a&textColor=ffffff&fontWeight=700",
     },
     {
       name: "Breakfast Lead",
       role: "Kitchen",
       bio: "In by four every morning. Makes the mandazi and the first pot of chai.",
-      img: IMG + "photo-1595475207225-428b62bda831?w=600&q=75",
+      img: "https://api.dicebear.com/9.x/initials/svg?seed=Breakfast%20Lead&backgroundColor=2e4a3c&textColor=ffffff&fontWeight=700",
     },
   ],
 
