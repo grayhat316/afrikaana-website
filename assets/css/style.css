@@ -1612,13 +1612,104 @@ section.tight {
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* ---------- Floating order button (mobile only) ----------
-   Desktop keeps the order link in the header; on narrow screens that link
-   is replaced by this button, which stays out of the way until the cart
-   actually has something in it. */
+/* ---------- Floating action stack (mobile only) ----------
+   Call, WhatsApp and the order button sit together in the bottom-right
+   corner on narrow screens. Desktop keeps the order link in the header,
+   so the whole stack is hidden there. */
 
+.float-stack {
+  display: none;
+}
+
+.float-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  height: 48px;
+  padding: 0 18px 0 15px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  white-space: nowrap;
+  box-shadow: 0 8px 22px rgba(28, 25, 23, 0.3);
+  transition: transform 0.2s var(--ease), background 0.2s var(--ease);
+}
+
+.float-btn svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.float-btn:hover,
+.float-btn:focus-visible {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.float-btn-wa {
+  background: #1faa53;
+}
+
+.float-btn-wa:hover,
+.float-btn-wa:focus-visible {
+  background: #178a43;
+}
+
+.float-btn-tel {
+  background: var(--forest);
+}
+
+.float-btn-tel:hover,
+.float-btn-tel:focus-visible {
+  background: var(--forest-light);
+}
+
+/* The order button only exists once the cart has something in it, so it
+   never adds clutter for someone who is just browsing. */
 .cart-fab {
   display: none;
+  background: var(--clay);
+}
+
+.cart-fab.show {
+  display: inline-flex;
+  animation: fab-in 0.3s var(--ease);
+}
+
+.cart-fab:hover,
+.cart-fab:focus-visible {
+  background: var(--clay-dark);
+}
+
+.cart-fab-count {
+  min-width: 26px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.24);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: grid;
+  place-items: center;
+}
+
+.cart-fab-count.bump {
+  animation: cart-bump 0.45s var(--ease);
+}
+
+@keyframes fab-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ---------- Toast ---------- */
@@ -1636,7 +1727,14 @@ section.tight {
   display: flex;
   align-items: center;
   gap: 16px;
-  transition: transform 0.35s var(--ease);
+  /* Hidden by visibility as well as position: an empty toast has almost no
+     height, so a purely percentage transform can still leave its padding
+     poking into view on short screens. */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.35s var(--ease), opacity 0.35s var(--ease),
+    visibility 0.35s;
   max-width: calc(100vw - 32px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
@@ -1644,6 +1742,9 @@ section.tight {
 
 .toast.show {
   transform: translate(-50%, 0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .toast a {
@@ -1726,73 +1827,32 @@ section.tight {
     border-bottom: 1px solid var(--line);
   }
 
-  /* Mobile: the header order link is replaced by the floating button. */
+  /* Mobile: the header order link is replaced by the floating stack. */
   .cart-link {
     display: none;
   }
 
-  .cart-fab {
+  .float-stack {
     position: fixed;
-    right: 18px;
-    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
     z-index: 110;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    background: var(--clay);
-    color: #fff;
-    box-shadow: 0 10px 26px rgba(28, 25, 23, 0.32);
-    transform: translateY(140%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
   }
 
-  .cart-fab.show {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .cart-fab:hover,
-  .cart-fab:focus-visible {
-    color: #fff;
-    background: var(--clay-dark);
-  }
-
-  .cart-fab svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  .cart-fab.bump {
-    animation: cart-bump 0.45s var(--ease);
-  }
-
-  .cart-fab-count {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    min-width: 23px;
-    height: 23px;
-    padding: 0 6px;
-    border-radius: 12px;
-    background: var(--ink);
-    color: #fff;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 600;
-    display: grid;
-    place-items: center;
-    border: 2px solid var(--sand);
-  }
-
-  /* Keep the toast clear of the floating button */
+  /* The toast moves to the top of the screen so it can never fight the
+     floating buttons for space at the bottom. */
   .toast {
-    bottom: calc(90px + env(safe-area-inset-bottom, 0px));
+    top: calc(76px + env(safe-area-inset-top, 0px));
+    bottom: auto;
+    transform: translate(-50%, -220%);
+  }
+
+  .toast.show {
+    transform: translate(-50%, 0);
   }
 }
 

@@ -274,16 +274,17 @@ console.log("\n[8] floating order button (mobile)");
   check("marked aria-hidden while empty", page.fab.getAttribute("aria-hidden") === "true");
   check("badge count starts at 0", String(page.fabCount.textContent) === "0", page.fabCount.textContent);
 
-  /* add something */
+  /* first item: the button animates itself in, so the chip stays still */
   sb.Cart.add("pilau-ya-kuku", 1);
   check("appears once an item is added", page.fab._classes.has("show"));
   check("no longer aria-hidden", page.fab.getAttribute("aria-hidden") === null);
   check("badge count matches the cart", String(page.fabCount.textContent) === "1", page.fabCount.textContent);
-  check("pulses when it appears", page.fab._classes.has("bump"));
+  check("entry animation not doubled up on the chip", !page.fabCount._classes.has("bump"));
 
-  /* more items */
+  /* further items: now the count chip pulses */
   sb.Cart.add("chapati", 2);
   check("badge follows further adds", String(page.fabCount.textContent) === "3", page.fabCount.textContent);
+  check("count chip pulses on later adds", page.fabCount._classes.has("bump"));
 
   /* removing everything hides it again */
   sb.Cart.setQty(0, 0);
@@ -292,6 +293,7 @@ console.log("\n[8] floating order button (mobile)");
   check("hides again when the cart empties", !page.fab._classes.has("show"));
   check("aria-hidden restored", page.fab.getAttribute("aria-hidden") === "true");
   check("badge back to 0", String(page.fabCount.textContent) === "0", page.fabCount.textContent);
+  check("chip pulse cleared when hidden", !page.fabCount._classes.has("bump"));
 
   /* the header link keeps working alongside it (desktop) */
   sb.Cart.add("pilau-ya-kuku", 1);

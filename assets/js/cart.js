@@ -121,10 +121,13 @@ var Cart = (function () {
         var justAppeared = !fab.classList.contains("show");
         fab.classList.add("show");
         fab.removeAttribute("aria-hidden");
-        if (justAppeared || grew) bump(fab);
+        /* The button's own entry animation covers the first appearance, so
+           the count chip only pulses on later changes. */
+        if (fabCount && !justAppeared && grew) bump(fabCount);
       } else {
         fab.classList.remove("show");
         fab.setAttribute("aria-hidden", "true");
+        if (fabCount) fabCount.classList.remove("bump");
       }
     }
 

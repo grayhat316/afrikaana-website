@@ -1,0 +1,7 @@
+# Test screenshots are build artifacts, not part of the site.
+tests/screenshots/
+
+# Editor and OS noise
+.DS_Store
+Thumbs.db
+*.swp
