@@ -1612,6 +1612,15 @@ section.tight {
   color: rgba(255, 255, 255, 0.5);
 }
 
+/* ---------- Floating order button (mobile only) ----------
+   Desktop keeps the order link in the header; on narrow screens that link
+   is replaced by this button, which stays out of the way until the cart
+   actually has something in it. */
+
+.cart-fab {
+  display: none;
+}
+
 /* ---------- Toast ---------- */
 
 .toast {
@@ -1716,6 +1725,75 @@ section.tight {
   .fact:nth-child(2) {
     border-bottom: 1px solid var(--line);
   }
+
+  /* Mobile: the header order link is replaced by the floating button. */
+  .cart-link {
+    display: none;
+  }
+
+  .cart-fab {
+    position: fixed;
+    right: 18px;
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    z-index: 110;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--clay);
+    color: #fff;
+    box-shadow: 0 10px 26px rgba(28, 25, 23, 0.32);
+    transform: translateY(140%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+  }
+
+  .cart-fab.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .cart-fab:hover,
+  .cart-fab:focus-visible {
+    color: #fff;
+    background: var(--clay-dark);
+  }
+
+  .cart-fab svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .cart-fab.bump {
+    animation: cart-bump 0.45s var(--ease);
+  }
+
+  .cart-fab-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    min-width: 23px;
+    height: 23px;
+    padding: 0 6px;
+    border-radius: 12px;
+    background: var(--ink);
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    display: grid;
+    place-items: center;
+    border: 2px solid var(--sand);
+  }
+
+  /* Keep the toast clear of the floating button */
+  .toast {
+    bottom: calc(90px + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 @media (max-width: 640px) {
@@ -1774,10 +1852,6 @@ section.tight {
     display: block;
     border-bottom: 1px solid var(--line);
     padding: 14px 0;
-  }
-
-  .cart-link span.label {
-    display: none;
   }
 
   .hero-copy .wrap {

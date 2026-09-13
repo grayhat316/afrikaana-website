@@ -81,28 +81,54 @@ var Cart = (function () {
     return cart;
   }
 
+  var _primed = false;
+  var _lastCount = 0;
+
+  function bump(el) {
+    el.classList.remove("bump");
+    void el.offsetWidth; /* force reflow so the animation restarts */
+    el.classList.add("bump");
+    clearTimeout(el._bumpTimer);
+    el._bumpTimer = setTimeout(function () {
+      el.classList.remove("bump");
+    }, 700);
+  }
+
   function updateBadge() {
     var c = count();
-    var el = document.querySelector(".cart-count");
-    if (!el) return;
-    el.textContent = c;
-    var wrapper = document.querySelector(".cart-link");
-    if (!wrapper) return;
+    var grew = _primed && c > _lastCount;
+    _lastCount = c;
 
-    if (c > 0) {
-      wrapper.classList.add("has-items");
-    } else {
-      wrapper.classList.remove("has-items");
+    var el = document.querySelector(".cart-count");
+    if (el) el.textContent = c;
+
+    /* Header order link: desktop only. */
+    var wrapper = document.querySelector(".cart-link");
+    if (wrapper) {
+      if (c > 0) wrapper.classList.add("has-items");
+      else wrapper.classList.remove("has-items");
+      if (grew) bump(wrapper);
     }
 
-    /* Pulse the header order link so the change is impossible to miss */
-    wrapper.classList.remove("bump");
-    void wrapper.offsetWidth;
-    wrapper.classList.add("bump");
-    clearTimeout(wrapper._bumpTimer);
-    wrapper._bumpTimer = setTimeout(function () {
-      wrapper.classList.remove("bump");
-    }, 700);
+    /* Floating order button: mobile only. Appears as soon as there is
+       something the customer can go and look at. */
+    var fab = document.getElementById("cart-fab");
+    if (fab) {
+      var fabCount = fab.querySelector(".cart-fab-count");
+      if (fabCount) fabCount.textContent = c;
+
+      if (c > 0) {
+        var justAppeared = !fab.classList.contains("show");
+        fab.classList.add("show");
+        fab.removeAttribute("aria-hidden");
+        if (justAppeared || grew) bump(fab);
+      } else {
+        fab.classList.remove("show");
+        fab.setAttribute("aria-hidden", "true");
+      }
+    }
+
+    _primed = true;
   }
 
   function showToast(name, dishId) {
@@ -293,6 +319,7 @@ var Cart = (function () {
     get: get,
     count: count,
     total: total,
+    updateBadge: updateBadge,
     showToast: showToast,
     sendWhatsApp: sendWhatsApp,
     renderOrderTable: renderOrderTable,

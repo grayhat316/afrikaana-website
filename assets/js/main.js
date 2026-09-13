@@ -65,23 +65,11 @@
   /* ------- Cart badge on load ------- */
 
   function updateCartBadge() {
-    var el = $(".cart-count");
-    if (!el) return;
-    try {
-      var raw = localStorage.getItem("afrikaana_cart");
-      var count = 0;
-      if (raw) {
-        var cart = JSON.parse(raw);
-        count = cart.reduce(function (n, line) {
-          return n + line.qty;
-        }, 0);
-      }
-      el.textContent = count;
-      var wrapper = $(".cart-link");
-      if (wrapper) {
-        wrapper.style.visibility = count > 0 ? "" : "hidden";
-      }
-    } catch (e) {}
+    /* One implementation, in cart.js, so the header link and the mobile
+       floating button can never drift apart. */
+    if (window.Cart && window.Cart.updateBadge) {
+      window.Cart.updateBadge();
+    }
   }
 
   /* ------- Menu: category tabs ------- */

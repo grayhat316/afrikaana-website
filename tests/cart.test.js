@@ -79,7 +79,12 @@ function buildPage(opts) {
   formCol.appendChild(checkoutForm);
   checkoutForm.parentElement = formCol;
 
+  const fab = makeEl("A");
+  const fabCount = makeEl("SPAN");
+  fab.querySelector = (sel) => (sel === ".cart-fab-count" ? fabCount : null);
+
   const byId = {
+    "cart-fab": fab,
     "order-table": orderTable,
     toast: toast,
     "order-subtotal": subtotal,
@@ -100,7 +105,7 @@ function buildPage(opts) {
     addEventListener: () => {},
   };
 
-  return { document, cartCount, cartLink, orderTable, totals, subtotal, totalEl, toast, toastMsg, proceed, checkoutSummary, checkoutForm, formCol };
+  return { document, cartCount, cartLink, fab, fabCount, orderTable, totals, subtotal, totalEl, toast, toastMsg, proceed, checkoutSummary, checkoutForm, formCol };
 }
 
 function run(page, scriptNames) {
@@ -164,6 +169,10 @@ console.log("\n[2] adding a dish");
 {
   const page = buildPage();
   const sb = run(page, ["data.js", "cart.js"]);
+
+  /* simulate page load: main.js calls this on DOMContentLoaded */
+  sb.Cart.updateBadge();
+  check("badge reads 0 on load", String(page.cartCount.textContent) === "0", page.cartCount.textContent);
 
   sb.Cart.add("pilau-ya-kuku", 2);
 
@@ -252,6 +261,43 @@ console.log("\n[6] /checkout with items");
   check("summary shows a total", /Total/.test(page.checkoutSummary.innerHTML));
 }
 
+
+/* ================= TEST 8: mobile floating order button ================= */
+console.log("\n[8] floating order button (mobile)");
+{
+  const page = buildPage();
+  const sb = run(page, ["data.js", "cart.js"]);
+
+  /* nothing in the cart yet */
+  sb.Cart.updateBadge();
+  check("hidden while the cart is empty", !page.fab._classes.has("show"));
+  check("marked aria-hidden while empty", page.fab.getAttribute("aria-hidden") === "true");
+  check("badge count starts at 0", String(page.fabCount.textContent) === "0", page.fabCount.textContent);
+
+  /* add something */
+  sb.Cart.add("pilau-ya-kuku", 1);
+  check("appears once an item is added", page.fab._classes.has("show"));
+  check("no longer aria-hidden", page.fab.getAttribute("aria-hidden") === null);
+  check("badge count matches the cart", String(page.fabCount.textContent) === "1", page.fabCount.textContent);
+  check("pulses when it appears", page.fab._classes.has("bump"));
+
+  /* more items */
+  sb.Cart.add("chapati", 2);
+  check("badge follows further adds", String(page.fabCount.textContent) === "3", page.fabCount.textContent);
+
+  /* removing everything hides it again */
+  sb.Cart.setQty(0, 0);
+  sb.Cart.setQty(0, 0);
+  check("cart emptied", sb.Cart.count() === 0, sb.Cart.count());
+  check("hides again when the cart empties", !page.fab._classes.has("show"));
+  check("aria-hidden restored", page.fab.getAttribute("aria-hidden") === "true");
+  check("badge back to 0", String(page.fabCount.textContent) === "0", page.fabCount.textContent);
+
+  /* the header link keeps working alongside it (desktop) */
+  sb.Cart.add("pilau-ya-kuku", 1);
+  check("desktop header link still tracks the cart", page.cartLink._classes.has("has-items"));
+}
+
 /* ================= TEST 7: data integrity ================= */
 console.log("\n[7] menu data");
 {
@@ -289,4 +335,4 @@ console.log("\n[7] menu data");
 }
 
 console.log("\n" + (failures === 0 ? "ALL CHECKS PASSED" : failures + " CHECK(S) FAILED"));
-process.exit(failures === 0 ? 1 : 0);
+process.exit(failures === 0 ? 0 : 1);
