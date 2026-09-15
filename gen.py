@@ -198,9 +198,7 @@ def section(title, body_html=""):
     return f'<section><div class="wrap"><h2>{title}</h2>{body_html}</div></section>'
 
 
-###############################################################################
-#  1. Home
-###############################################################################
+# home
 
 home = build(
     "/",
@@ -478,9 +476,7 @@ home = build(
     </section>""",
 )
 
-###############################################################################
-#  2. Menu
-###############################################################################
+# menu
 
 cats_html = "\n".join(
     f'<button class="cat-tab" data-cat="{c["id"]}" aria-pressed="{"true" if i==0 else "false"}">{c["name"]}</button>'
@@ -546,9 +542,7 @@ menu = build(
     ),
 )
 
-###############################################################################
-#  3. Dish detail
-###############################################################################
+# dish detail
 
 dish_page = build(
     "/dish",
@@ -568,9 +562,7 @@ dish_page = build(
     </section>""",
 )
 
-###############################################################################
-#  4-15: Remaining pages (category, catering, about, etc.)
-###############################################################################
+# remaining pages
 
 def cater_detail():
     cards = [
@@ -799,7 +791,7 @@ contact = build(
     </section>""",
 )
 
-# Remaining pages (12-20) — simpler, static content pages
+# remaining pages
 order = build(
     "/order", "Your Order | Afrikaana", "Review your order at Afrikaana Eldoret.",
     "order",
@@ -865,9 +857,7 @@ simple_pages = [
     ("404", "home", "Page not found | Afrikaana", "404 page not found.", "<section><div class=\"wrap\" style=\"text-align:center;padding:80px 0\"><div style=\"font-family:var(--font-display);font-size:6rem;font-weight:700;line-height:1;margin-bottom:1rem;color:var(--clay)\">404</div><h1>Page not found</h1><p class=\"lede\" style=\"margin:0 auto\">The page you are looking for does not exist. It may have been moved or the address may be wrong.</p><div style=\"display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px\"><a href=\"/\" class=\"btn btn-primary\">Home</a><a href=\"/menu\" class=\"btn btn-outline\">Menu</a><a href=\"/contact\" class=\"btn btn-outline\">Contact</a></div></div></section>"),
 ]
 
-###############################################################################
-#  Generate all files
-###############################################################################
+# generate
 
 pages = [
     ("index.html", home),

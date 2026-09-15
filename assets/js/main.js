@@ -1,6 +1,4 @@
-/* Afrikaana Main
-   Navigation, rendering, search, lightbox, forms.
-*/
+/* Afrikaana Restaurant, Eldoret */
 
 (function () {
   "use strict";
@@ -15,7 +13,7 @@
     return Array.from(document.querySelectorAll(sel));
   }
 
-  /* ------- Mobile drawer ------- */
+  // mobile drawer
 
   function initDrawer() {
     var burger = $(".burger");
@@ -41,7 +39,7 @@
     });
   }
 
-  /* ------- Header scroll ------- */
+  // header scroll
 
   function initHeaderScroll() {
     var header = $(".site-header");
@@ -62,17 +60,16 @@
     });
   }
 
-  /* ------- Cart badge on load ------- */
+  // cart badge on load
 
   function updateCartBadge() {
-    /* One implementation, in cart.js, so the header link and the mobile
-       floating button can never drift apart. */
+    // badge state comes from cart.js
     if (window.Cart && window.Cart.updateBadge) {
       window.Cart.updateBadge();
     }
   }
 
-  /* ------- Menu: category tabs ------- */
+  // menu tabs
 
   function initMenuTabs() {
     var container = $("#dish-container");
@@ -92,7 +89,7 @@
       });
     });
 
-    /* search */
+    // search
     var search = $("#menu-search");
     if (search) {
       search.addEventListener("input", function () {
@@ -100,7 +97,7 @@
       });
     }
 
-    /* render all categories on load (default tab is the first one marked pressed) */
+    // render all categories on load
     var first = $(".cat-tab[aria-pressed='true']");
     activeCat = first ? first.dataset.cat : "";
     renderDishes(activeCat, "");
@@ -182,7 +179,7 @@
     container.innerHTML = html;
   }
 
-  /* ------- Dish detail page ------- */
+  // dish detail
 
   function initDishDetail() {
     var el = $("#dish-page");
@@ -268,7 +265,7 @@
       "</div>" +
       "</div>";
 
-    /* related */
+    // related dishes
     var rel = $("#related-dishes");
     if (!rel) return;
     var same = AFRIKAANA.dishesInCategory(dish.category).filter(function (d) {
@@ -309,7 +306,7 @@
     rel.innerHTML = relHTML;
   }
 
-  /* ------- Category filter page ------- */
+  // category page
 
   function initCategoryPage() {
     var params = new URLSearchParams(window.location.search);
@@ -323,7 +320,7 @@
     renderDishes(catId, "");
   }
 
-  /* ------- Catering package detail ------- */
+  // catering package
 
   function initPackageDetail() {
     var el = $("#package-page");
@@ -380,7 +377,7 @@
       "</div>";
   }
 
-  /* ------- Journal ------- */
+  // journal
 
   function initJournal() {
     var list = $("#post-list");
@@ -458,7 +455,7 @@
       "</div>";
   }
 
-  /* ------- Team ------- */
+  // team
 
   function initTeam() {
     var el = $("#team-grid");
@@ -486,7 +483,7 @@
     el.innerHTML = html;
   }
 
-  /* ------- Branches ------- */
+  // branches
 
   function initBranches() {
     var el = $("#branches-grid");
@@ -528,7 +525,7 @@
     el.innerHTML = html;
   }
 
-  /* ------- FAQ ------- */
+  // faq
 
   function initFAQ() {
     var el = $("#faq-list");
@@ -549,7 +546,7 @@
     el.innerHTML = html;
   }
 
-  /* ------- Allergens ------- */
+  // allergens
 
   function initAllergens() {
     var el = $("#allergen-table");
@@ -571,7 +568,7 @@
       "</tbody>";
   }
 
-  /* ------- Lightbox ------- */
+  // lightbox
 
   function initLightbox() {
     var items = $$(".gallery-item");
@@ -612,7 +609,7 @@
     });
   }
 
-  /* ------- Contact form ------- */
+  // contact form
 
   function initContactForm() {
     var form = $("#contact-form");
@@ -638,7 +635,7 @@
     });
   }
 
-  /* ------- Checkout form ------- */
+  // checkout form
 
   function initCheckoutForm() {
     var form = $("#checkout-form");
@@ -658,13 +655,13 @@
     });
   }
 
-  /* ------- Order page ------- */
+  // order page
 
   function initOrderPage() {
     Cart.renderOrderTable();
   }
 
-  /* ------- Init ------- */
+  // init
 
   function init() {
     initDrawer();
@@ -721,7 +718,7 @@
     init();
   }
 
-  /* Expose Cart.render functions globally for inline onclick rerenders */
+  // needed by the inline onclick handlers
   window.render = function () {
     if (PAGE === "order") {
       Cart.renderOrderTable();

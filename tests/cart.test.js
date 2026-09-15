@@ -1,5 +1,4 @@
-/* Functional test for Afrikaana cart behaviour.
-   Stubs the small DOM surface cart.js touches, then asserts real behaviour. */
+/* cart behaviour tests */
 
 const fs = require("fs");
 const vm = require("vm");
@@ -51,7 +50,7 @@ function makeEl(tag) {
   return el;
 }
 
-/* ---- build the fake page ---- */
+/* fake page */
 function buildPage(opts) {
   opts = opts || {};
 
@@ -132,9 +131,7 @@ function run(page, scriptNames) {
   for (const name of scriptNames) {
     vm.runInContext(fs.readFileSync(DIR + name, "utf8"), ctx, { filename: name });
   }
-  /* data.js declares AFRIKAANA with `const`, so it lives in the context's
-     lexical scope rather than as an own property of the sandbox object.
-     Read it back through the context. */
+  /* data.js uses const, so AFRIKAANA is read back through the context */
   sandbox.get = (expr) => vm.runInContext(expr, ctx);
   return sandbox;
 }
@@ -149,7 +146,7 @@ function check(label, cond, extra) {
   }
 }
 
-/* ================= TEST 1: empty cart on /order ================= */
+/* empty cart on /order */
 console.log("\n[1] /order with an empty cart");
 {
   const page = buildPage();
@@ -164,13 +161,13 @@ console.log("\n[1] /order with an empty cart");
   check("does not crash on .section lookup", page.orderTable.innerHTML.length > 0);
 }
 
-/* ================= TEST 2: add an item, then render ================= */
+/* add an item */
 console.log("\n[2] adding a dish");
 {
   const page = buildPage();
   const sb = run(page, ["data.js", "cart.js"]);
 
-  /* simulate page load: main.js calls this on DOMContentLoaded */
+  /* page load */
   sb.Cart.updateBadge();
   check("badge reads 0 on load", String(page.cartCount.textContent) === "0", page.cartCount.textContent);
 
@@ -188,7 +185,7 @@ console.log("\n[2] adding a dish");
   check("toast names the dish", /Pilau ya Kuku added to order/.test(page.toastMsg.innerHTML), page.toastMsg.innerHTML);
 }
 
-/* ================= TEST 3: order table with items ================= */
+/* order table with items */
 console.log("\n[3] /order with items");
 {
   const page = buildPage();
@@ -216,7 +213,7 @@ console.log("\n[3] /order with items");
   check("total equals 2x pilau + 1x chapati", sb.Cart.total() === expected, sb.Cart.total() + " vs " + expected);
 }
 
-/* ================= TEST 4: quantity + remove ================= */
+/* quantity and remove */
 console.log("\n[4] quantity stepper and remove");
 {
   const page = buildPage();
@@ -237,7 +234,7 @@ console.log("\n[4] quantity stepper and remove");
   check("remove() empties the cart", sb.Cart.count() === 0, sb.Cart.count());
 }
 
-/* ================= TEST 5: checkout with empty cart ================= */
+/* checkout with an empty cart */
 console.log("\n[5] /checkout with an empty cart");
 {
   const page = buildPage();
@@ -248,7 +245,7 @@ console.log("\n[5] /checkout with an empty cart");
   check("hides the form column", page.formCol.style.display === "none", page.formCol.style.display);
 }
 
-/* ================= TEST 6: checkout with items ================= */
+/* checkout with items */
 console.log("\n[6] /checkout with items");
 {
   const page = buildPage();
@@ -262,7 +259,7 @@ console.log("\n[6] /checkout with items");
 }
 
 
-/* ================= TEST 8: mobile floating order button ================= */
+/* mobile order button */
 console.log("\n[8] floating order button (mobile)");
 {
   const page = buildPage();
@@ -274,19 +271,19 @@ console.log("\n[8] floating order button (mobile)");
   check("marked aria-hidden while empty", page.fab.getAttribute("aria-hidden") === "true");
   check("badge count starts at 0", String(page.fabCount.textContent) === "0", page.fabCount.textContent);
 
-  /* first item: the button animates itself in, so the chip stays still */
+  /* first item */
   sb.Cart.add("pilau-ya-kuku", 1);
   check("appears once an item is added", page.fab._classes.has("show"));
   check("no longer aria-hidden", page.fab.getAttribute("aria-hidden") === null);
   check("badge count matches the cart", String(page.fabCount.textContent) === "1", page.fabCount.textContent);
   check("entry animation not doubled up on the chip", !page.fabCount._classes.has("bump"));
 
-  /* further items: now the count chip pulses */
+  /* further items */
   sb.Cart.add("chapati", 2);
   check("badge follows further adds", String(page.fabCount.textContent) === "3", page.fabCount.textContent);
   check("count chip pulses on later adds", page.fabCount._classes.has("bump"));
 
-  /* removing everything hides it again */
+  /* remove everything */
   sb.Cart.setQty(0, 0);
   sb.Cart.setQty(0, 0);
   check("cart emptied", sb.Cart.count() === 0, sb.Cart.count());
@@ -295,12 +292,12 @@ console.log("\n[8] floating order button (mobile)");
   check("badge back to 0", String(page.fabCount.textContent) === "0", page.fabCount.textContent);
   check("chip pulse cleared when hidden", !page.fabCount._classes.has("bump"));
 
-  /* the header link keeps working alongside it (desktop) */
+  /* desktop header link */
   sb.Cart.add("pilau-ya-kuku", 1);
   check("desktop header link still tracks the cart", page.cartLink._classes.has("has-items"));
 }
 
-/* ================= TEST 7: data integrity ================= */
+/* menu data */
 console.log("\n[7] menu data");
 {
   const page = buildPage();

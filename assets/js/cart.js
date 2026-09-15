@@ -1,6 +1,4 @@
-/* Afrikaana Cart
-   localStorage-backed order management.
-*/
+/* Afrikaana Restaurant, Eldoret */
 
 var Cart = (function () {
   "use strict";
@@ -86,7 +84,7 @@ var Cart = (function () {
 
   function bump(el) {
     el.classList.remove("bump");
-    void el.offsetWidth; /* force reflow so the animation restarts */
+    void el.offsetWidth; // restart the animation
     el.classList.add("bump");
     clearTimeout(el._bumpTimer);
     el._bumpTimer = setTimeout(function () {
@@ -102,7 +100,7 @@ var Cart = (function () {
     var el = document.querySelector(".cart-count");
     if (el) el.textContent = c;
 
-    /* Header order link: desktop only. */
+    // header order link
     var wrapper = document.querySelector(".cart-link");
     if (wrapper) {
       if (c > 0) wrapper.classList.add("has-items");
@@ -110,8 +108,7 @@ var Cart = (function () {
       if (grew) bump(wrapper);
     }
 
-    /* Floating order button: mobile only. Appears as soon as there is
-       something the customer can go and look at. */
+    // floating order button
     var fab = document.getElementById("cart-fab");
     if (fab) {
       var fabCount = fab.querySelector(".cart-fab-count");
@@ -121,8 +118,7 @@ var Cart = (function () {
         var justAppeared = !fab.classList.contains("show");
         fab.classList.add("show");
         fab.removeAttribute("aria-hidden");
-        /* The button's own entry animation covers the first appearance, so
-           the count chip only pulses on later changes. */
+        // skip the pulse on first show
         if (fabCount && !justAppeared && grew) bump(fabCount);
       } else {
         fab.classList.remove("show");
@@ -188,7 +184,7 @@ var Cart = (function () {
     window.open("https://wa.me/" + AFRIKAANA.brand.whatsapp + "?text=" + msg, "_blank");
   }
 
-  /* Render the order table on /order */
+  // order table
   function renderOrderTable() {
     var el = document.getElementById("order-table");
     if (!el) return;
@@ -269,7 +265,7 @@ var Cart = (function () {
     document.getElementById("order-total").textContent = AFRIKAANA.money(tot);
   }
 
-  /* Render checkout summary */
+  // checkout summary
   function renderCheckoutSummary() {
     var el = document.getElementById("checkout-summary");
     if (!el) return;

@@ -1,4 +1,4 @@
-/* Capture real mobile + desktop renders of the floating stack. */
+/* capture mobile and desktop screenshots */
 
 const { spawn } = require("child_process");
 const fs = require("fs");
@@ -97,7 +97,7 @@ async function main() {
     console.log(`  saved ${file} (${kb} KB)`);
   };
 
-  /* ---------- mobile ---------- */
+  /* mobile */
   await send("Emulation.setDeviceMetricsOverride", { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
   await evaluate("try { localStorage.clear() } catch (e) {}");
   await goto(BASE + "/");
@@ -108,7 +108,7 @@ async function main() {
   await sleep(700);
   await shot("mobile-2-cart-filled.png");
 
-  /* close-up of just the bottom-right corner, so the buttons are legible */
+  /* close-up of the buttons */
   await evaluate("document.documentElement.style.overflow='hidden'");
   await send("Emulation.setDeviceMetricsOverride", {
     width: 300,
@@ -130,7 +130,7 @@ async function main() {
   fs.writeFileSync(path.join(OUT, "mobile-3-buttons-closeup.png"), Buffer.from(overlay.data, "base64"));
   console.log("  saved mobile-3-buttons-closeup.png");
 
-  /* ---------- desktop ---------- */
+  /* desktop */
   await send("Emulation.setDeviceMetricsOverride", { width: 1280, height: 900, deviceScaleFactor: 1, mobile: false });
   await goto(BASE + "/");
   await sleep(600);

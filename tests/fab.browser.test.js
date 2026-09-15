@@ -1,6 +1,4 @@
-/* Real-browser check of the mobile floating order button, driven over CDP.
-   Launches headless Chrome, sets a committed viewport, exercises localStorage,
-   and reads back computed styles. */
+/* real browser check of the floating buttons, driven over CDP */
 
 const { spawn } = require("child_process");
 const fs = require("fs");
@@ -8,8 +6,7 @@ const os = require("os");
 const path = require("path");
 
 const CHROME = "C:/Program Files/Google/Chrome/Application/chrome.exe";
-/* random port: consecutive runs would otherwise collide on a port still
-   held by the previous Chrome as it shuts down */
+/* random port, consecutive runs collide on a fixed one */
 const PORT = 9300 + Math.floor(Math.random() * 600);
 const PROFILE = path.join(os.tmpdir(), "afr-cdp-" + Date.now());
 const BASE = "http://localhost:8099";
@@ -32,7 +29,7 @@ async function main() {
     { stdio: "ignore" }
   );
 
-  /* wait for the devtools endpoint */
+  /* wait for devtools */
   let version = null;
   for (let i = 0; i < 40; i++) {
     try {
@@ -101,9 +98,7 @@ async function main() {
 
   const goto = async (url) => {
     await send("Page.navigate", { url });
-    /* readyState alone is not enough: the previous document can still report
-       "complete" before the new navigation commits. Wait for a marker that
-       only exists on a fully-parsed Afrikaana page. */
+    /* readyState alone is not enough, the old page still reports complete */
     for (let i = 0; i < 80; i++) {
       await sleep(150);
       let ok = false;
@@ -131,14 +126,14 @@ async function main() {
     }
   };
 
-  /* ---------------- MOBILE ---------------- */
+  /* mobile */
   console.log("\n[MOBILE 390x844] homepage");
   await evaluate("try { localStorage.clear() } catch (e) {}");
   await goto(BASE + "/");
 
   check("viewport really is 390px wide", (await evaluate("window.innerWidth")) === 390, await evaluate("window.innerWidth"));
 
-  /* the toast must be completely invisible when there is nothing to say */
+  /* toast */
   const toastHidden = await evaluate(`(() => {
     const t = document.getElementById('toast');
     const s = getComputedStyle(t);
@@ -163,7 +158,7 @@ async function main() {
   })()`);
   check("hidden toast does not paint or capture clicks", toastHit.hitsToast === false, toastHit);
 
-  /* the stack itself */
+  /* stack */
   const stack = await evaluate(`(() => {
     const st = document.querySelector('.float-stack');
     const s = getComputedStyle(st);
@@ -179,7 +174,7 @@ async function main() {
   check("float stack hugs the bottom edge", stack.bottom < 24, stack.bottom);
   check("whole stack sits on screen", stack.onScreen === true, stack);
 
-  /* call + whatsapp are always there */
+  /* call and whatsapp */
   const others = await evaluate(`(() => {
     const wa = document.querySelector('.float-btn-wa');
     const tel = document.querySelector('.float-btn-tel');
@@ -201,7 +196,7 @@ async function main() {
   check("Call button is labelled", /Call/.test(others.tel.text), others.tel.text);
   check("Call button meets the 44px tap minimum", others.tel.h >= 44, others.tel.h);
 
-  /* the order button starts hidden */
+  /* order button */
   const fabEmpty = await evaluate(`(() => {
     const fab = document.getElementById('cart-fab');
     const s = getComputedStyle(fab);
@@ -215,7 +210,7 @@ async function main() {
   const linkMobile = await evaluate("getComputedStyle(document.querySelector('.cart-link')).display");
   check("header order link is hidden on mobile", linkMobile === "none", linkMobile);
 
-  /* add an item through the real code path */
+  /* add an item */
   await evaluate("Cart.add('pilau-ya-kuku', 2); Cart.updateBadge();");
   await sleep(450);
 
@@ -261,7 +256,7 @@ async function main() {
   })()`);
   check("order button matches the other buttons in height", sameHeight === true, sameHeight);
 
-  /* the toast now lives at the top, clear of the whole stack */
+  /* toast position */
   await evaluate("Cart.showToast('Pilau ya Kuku')");
   await sleep(500);
   const toastBox = await evaluate(`(() => {
@@ -277,7 +272,7 @@ async function main() {
   check("toast does not cover the header", toastBox.overlapsHeader === false, toastBox);
   check("toast sits below the sticky header", toastBox.toastTop >= toastBox.headerBottom, toastBox);
 
-  /* tapping the order button goes to /order */
+  /* tap through to /order */
   await evaluate("document.getElementById('cart-fab').click()");
   await waitFor(
     "location.pathname.indexOf('/order') === 0 && document.readyState === 'complete' && !!document.querySelector('.order-table')"
@@ -298,7 +293,7 @@ async function main() {
   const stackOnOrder = await evaluate("getComputedStyle(document.querySelector('.float-stack')).display");
   check("float stack still present on the order page", stackOnOrder === "flex", stackOnOrder);
 
-  /* ---------------- DESKTOP ---------------- */
+  /* desktop */
   console.log("\n[DESKTOP 1280x900] same page");
   await send("Emulation.setDeviceMetricsOverride", {
     width: 1280,

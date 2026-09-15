@@ -1,7 +1,4 @@
-/* Afrikaana Restaurant, Eldoret
-   Central data. Everything the site renders comes from here.
-   Swap the image paths in assets/img for real Afrikaana photos when available.
-*/
+/* Afrikaana Restaurant, Eldoret */
 
 const IMG = "https://images.unsplash.com/";
 
@@ -68,7 +65,7 @@ const AFRIKAANA = {
   ],
 
   dishes: [
-    /* ---------- Breakfast ---------- */
+    // breakfast
     {
       id: "chai-mkate",
       name: "Chai ya Maziwa & Mkate",
@@ -140,7 +137,7 @@ const AFRIKAANA = {
       img: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&q=75",
     },
 
-    /* ---------- Swahili Dishes ---------- */
+    // swahili dishes
     {
       id: "pilau-ya-kuku",
       name: "Pilau ya Kuku",
@@ -240,7 +237,7 @@ const AFRIKAANA = {
       img: "https://yanna-resse.netlify.app/static/e304f7ece2577f614a4963b9dc82b2bb/a1747/bhajia.jpg",
     },
 
-    /* ---------- Grills ---------- */
+    // grills
     {
       id: "nyama-choma-ngombe",
       name: "Nyama Choma ya Ng'ombe",
@@ -326,7 +323,7 @@ const AFRIKAANA = {
       img: "https://images.unsplash.com/photo-1765265432611-17d3f2da2d5d?w=800&q=75",
     },
 
-    /* ---------- Rice & Pilau ---------- */
+    // rice and pilau
     {
       id: "wali-plain",
       name: "Wali Plain",
@@ -398,7 +395,7 @@ const AFRIKAANA = {
       img: "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=800&q=75",
     },
 
-    /* ---------- Vegetarian ---------- */
+    // vegetarian
     {
       id: "ugali-sukuma",
       name: "Ugali & Sukuma Wiki",
@@ -484,7 +481,7 @@ const AFRIKAANA = {
       img: "https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&q=75",
     },
 
-    /* ---------- Snacks & Sides ---------- */
+    // snacks and sides
     {
       id: "chapati",
       name: "Chapati",
@@ -555,7 +552,7 @@ const AFRIKAANA = {
       img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=75",
     },
 
-    /* ---------- Desserts ---------- */
+    // desserts
     {
       id: "fruit-platter",
       name: "Fruit Platter",
@@ -585,7 +582,7 @@ const AFRIKAANA = {
       img: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=75",
     },
 
-    /* ---------- Drinks & Coffee ---------- */
+    // drinks and coffee
     {
       id: "kenyan-aa",
       name: "Kenyan AA Coffee",
@@ -941,7 +938,7 @@ const AFRIKAANA = {
   },
 };
 
-/* Small helpers used across pages */
+// helpers
 
 AFRIKAANA.getDish = function (id) {
   return AFRIKAANA.dishes.find(function (d) {
@@ -986,7 +983,7 @@ AFRIKAANA.formatDate = function (iso) {
   return d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear();
 };
 
-/* Cart counts, read by the header on every page */
+// cart count
 AFRIKAANA.cartCount = function () {
   try {
     const raw = localStorage.getItem("afrikaana_cart");
