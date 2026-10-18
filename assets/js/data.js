@@ -895,7 +895,7 @@ const AFRIKAANA = {
     },
     {
       q: "Do you deliver?",
-      a: "Yes, inside Eldoret town. Delivery is free above a certain order value, and there is a small charge below it. Call or send a WhatsApp message with your order and location.",
+      a: "Yes, inside Eldoret town. Delivery is free above a certain order value, and there is a small charge below it. Call or send a message with your order and location.",
     },
     {
       q: "How do I pay?",

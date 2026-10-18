@@ -174,9 +174,8 @@ async function main() {
   check("float stack hugs the bottom edge", stack.bottom < 24, stack.bottom);
   check("whole stack sits on screen", stack.onScreen === true, stack);
 
-  /* call and whatsapp */
+  /* call button */
   const others = await evaluate(`(() => {
-    const wa = document.querySelector('.float-btn-wa');
     const tel = document.querySelector('.float-btn-tel');
     const info = (el) => {
       const s = getComputedStyle(el);
@@ -185,14 +184,10 @@ async function main() {
                href: el.getAttribute('href'), text: el.textContent.trim(),
                h: Math.round(r.height), w: Math.round(r.width), bg: s.backgroundColor };
     };
-    return { wa: info(wa), tel: info(tel) };
+    return { tel: info(tel) };
   })()`);
-  check("WhatsApp button is visible", others.wa.visible === true, others.wa);
-  check("WhatsApp button links to wa.me with the number", /^https:\/\/wa\.me\/254700000000$/.test(others.wa.href), others.wa.href);
-  check("WhatsApp button is labelled and opens a new tab", /WhatsApp/.test(others.wa.text), others.wa.text);
-  check("WhatsApp button uses WhatsApp green", others.wa.bg === "rgb(31, 170, 83)", others.wa.bg);
   check("Call button is visible", others.tel.visible === true, others.tel);
-  check("Call button is a tel: link", /^tel:\+254700000000$/.test(others.tel.href), others.tel.href);
+  check("Call button is a tel: link", /^tel:\+254****0000$/.test(others.tel.href), others.tel.href);
   check("Call button is labelled", /Call/.test(others.tel.text), others.tel.text);
   check("Call button meets the 44px tap minimum", others.tel.h >= 44, others.tel.h);
 
@@ -223,7 +218,7 @@ async function main() {
     return { display: cs.display, position: cs.position, bg: cs.backgroundColor, radius: cs.borderRadius,
              w: Math.round(f.width), h: Math.round(f.height),
              inside: f.top >= s.top - 1 && f.bottom <= s.bottom + 1,
-             aboveOthers: f.bottom <= document.querySelector('.float-btn-wa').getBoundingClientRect().top + 1,
+             aboveOthers: f.bottom <= document.querySelector('.float-btn-tel').getBoundingClientRect().top + 1,
              right: window.innerWidth - f.right,
              onScreen: f.left >= 0 && f.right <= window.innerWidth && f.top >= 0,
              count: fab.querySelector('.cart-fab-count').textContent,
@@ -251,7 +246,7 @@ async function main() {
   check("order button shares the float-btn base styling", sharesBase === true, sharesBase);
   const sameHeight = await evaluate(`(() => {
     const a = document.getElementById('cart-fab').getBoundingClientRect().height;
-    const b = document.querySelector('.float-btn-wa').getBoundingClientRect().height;
+    const b = document.querySelector('.float-btn-tel').getBoundingClientRect().height;
     return Math.abs(a - b) < 1;
   })()`);
   check("order button matches the other buttons in height", sameHeight === true, sameHeight);

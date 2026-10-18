@@ -103,9 +103,7 @@ HEAD = """<!doctype html>
           <ul>
             <li>Kabiyet House, Oginga Odinga St</li>
             <li>Eldoret CBD, Kenya</li>
-            <li><a href="tel:+254700000000">0700 000 000</a></li>
-            <li><a href="https://wa.me/254700000000">WhatsApp</a></li>
-            <li>Open 24 hours</li>
+            <li><a href="tel:+254700000000">0700 000 000</a></li>            <li>Open 24 hours</li>
           </ul>
         </div>
       </div>
@@ -124,15 +122,7 @@ HEAD = """<!doctype html>
       </svg>
       <span class="cart-fab-text">View order</span>
       <span class="cart-fab-count">0</span>
-    </a>
-    <a href="https://wa.me/254700000000" class="float-btn float-btn-wa" target="_blank" rel="noopener" aria-label="Chat with Afrikaana on WhatsApp">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
-        <path d="M17.47 14.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.79-1.67-2.09-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.09 3.2 5.07 4.48.71.3 1.26.48 1.69.62.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"></path>
-        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.53 0-3.03-.41-4.34-1.18l-.31-.18-3.22.84.86-3.14-.2-.32a8.2 8.2 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 4.54 0 8.23 3.69 8.23 8.23 0 4.54-3.69 8.24-8.23 8.24z"></path>
-      </svg>
-      <span>WhatsApp</span>
-    </a>
-    <a href="tel:+254700000000" class="float-btn float-btn-tel" aria-label="Call Afrikaana">
+    </a>    <a href="tel:+254700000000" class="float-btn float-btn-tel" aria-label="Call Afrikaana">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path>
       </svg>
@@ -380,8 +370,8 @@ home = build(
           </div>
           <div class="step-card">
             <span class="step-num">02</span>
-            <h3>Send it on WhatsApp</h3>
-            <p>Your order goes straight to the counter on WhatsApp, with the items, quantities and total already written out for you.</p>
+            <h3>Place your order</h3>
+            <p>Your order goes straight to the counter, with the items, quantities and total already written out for you.</p>
           </div>
           <div class="step-card">
             <span class="step-num">03</span>
@@ -607,7 +597,7 @@ catering = build(
         <div class="grid grid-2">{cards}</div>
         <div style="text-align:center;margin-top:40px;padding:36px;background:var(--paper);border:1px solid var(--line)">
           <h3 style="margin-bottom:8px">Not sure what you need?</h3>
-          <p class="muted">Call us or send a WhatsApp. We will talk you through it and quote the same day.</p>
+          <p class="muted">Call us. We will talk you through it and quote the same day.</p>
           <a href="/contact" class="btn btn-primary" style="margin-top:12px">Get in touch</a>
         </div>
       </div>
@@ -751,7 +741,7 @@ contact = build(
       <div class="wrap">
         <div class="page-head">
           <h1>Contact & Reserve</h1>
-          <p>Book a table, ask about catering, or just say hello. Your message goes straight to our WhatsApp.</p>
+          <p>Book a table, ask about catering, or just say hello. We will get back to you shortly.</p>
         </div>
         <div class="split">
           <div>
@@ -766,7 +756,7 @@ contact = build(
                 </select>
               </div>
               <div class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
-              <button class="btn btn-primary btn-block" type="submit">Send via WhatsApp</button>
+              <button class="btn btn-primary btn-block" type="submit">Send</button>
             </form>
           </div>
           <div>
@@ -827,11 +817,11 @@ checkout = build(
             </div>
             <div class="field"><label for="notes">Special instructions</label><textarea id="notes" name="notes"></textarea></div>
             <p class="field-hint" style="margin-bottom:18px">Payment: M-Pesa, cash or card at pickup. You are not charged through this form.</p>
-            <button class="btn btn-primary btn-block" type="submit">Send order via WhatsApp</button>
+            <button class="btn btn-primary btn-block" type="submit">Send order</button>
           </form>
           <div id="checkout-confirm" style="display:none; text-align:center; padding:40px 0">
             <h2>Your order has been sent</h2>
-            <p class="lede">Check your WhatsApp. Our team will confirm within a few minutes.</p>
+            <p class="lede">Details sent. We will get back to you shortly.</p>
             <a href="/menu" class="btn btn-primary">Back to menu</a>
           </div>
         </div>
@@ -852,7 +842,7 @@ simple_pages = [
     ("visit", "home", "Visit Us | Afrikaana", "Directions and parking at Afrikaana Eldoret.", "<section><div class=\"wrap\"><div class=\"page-head\"><h1>Visit us</h1></div><div class=\"prose\"><h2>Kabiyet House (Main branch)</h2><p>Kabiyet House, Oginga Odinga Street, opposite Equity Main Branch, Eldoret CBD.</p><p>Street parking available along Oginga Odinga Street. At peak lunch hours it fills up, so give yourself a few extra minutes. The matatu stage on Oginga Odinga is a two-minute walk.</p><h2>Kenya Street</h2><p>Off Kenyatta Street, behind Fims Building, Eldoret CBD. Open 6am to 11pm. Closest to the matatu stage. Good for a quick plate and takeaway.</p><h2>Uganda Road</h2><p>Uganda Road, near the Easy Coach stage. Open 24 hours. Busy with travellers through the night.</p></div></div></section>"),
     ("faq", "faq", "FAQ | Afrikaana", "Frequently asked questions about Afrikaana Eldoret.", "<section><div class=\"wrap\"><div class=\"page-head\"><h1>FAQ</h1></div><div id=\"faq-list\"></div></div></section>"),
     ("allergens", "allergens", "Allergens Guide | Afrikaana", "Allergen information for Afrikaana menu.", "<section><div class=\"wrap\"><div class=\"page-head\"><h1>Allergens guide</h1></div><p class=\"lede\" style=\"margin-bottom:24px\">This is a guide, not a guarantee. Our kitchen handles wheat, milk, eggs, nuts, fish and soy, so we cannot rule out cross contact. If you have a serious allergy, tell us when you order.</p><table class=\"spec-table\" id=\"allergen-table\"></table></div></section>"),
-    ("privacy", "home", "Privacy | Afrikaana", "Privacy policy.", "<section><div class=\"wrap\"><div class=\"page-head\"><h1>Privacy</h1></div><div class=\"prose\"><p>This website collects only the information you enter into the contact and checkout forms: your name, phone number and message. That information is sent directly to our WhatsApp and is not stored on a server, tracked with analytics or shared with any third party.</p><p>Our website is static and does not use cookies or tracking scripts of any kind. There is no login, no account and no persistent storage of your data beyond what you choose to send us via WhatsApp.</p><p>If you have questions, reach us through the <a href=\"/contact\">contact page</a>.</p></div></div></section>"),
+    ("privacy", "home", "Privacy | Afrikaana", "Privacy policy.", "<section><div class=\"wrap\"><div class=\"page-head\"><h1>Privacy</h1></div><div class=\"prose\"><p>This website collects only the information you enter into the contact and checkout forms: your name, phone number and message. That information is not stored on a server, tracked with analytics or shared with any third party.</p><p>Our website is static and does not use cookies or tracking scripts of any kind. There is no login, no account and no persistent storage of your data beyond what you choose to send us via WhatsApp.</p><p>If you have questions, reach us through the <a href=\"/contact\">contact page</a>.</p></div></div></section>"),
     ("terms", "home", "Terms | Afrikaana", "Terms of service.", "<section><div class=\"wrap\"><div class=\"page-head\"><h1>Terms of service</h1></div><div class=\"prose\"><p>By placing an order through this website, you agree that the order is a request for food which Afrikaana may confirm or decline. Prices are in Kenyan shillings and may change without notice. Delivery is available inside Eldoret town; delivery outside the CBD may attract an additional charge communicated before dispatch.</p><p>Catering bookings require a deposit to hold the date. Cancellations made more than 72 hours before the event receive a full refund of the deposit. Cancellations inside 72 hours forfeit the deposit.</p><p>Afrikaana is not responsible for delays caused by traffic, weather or conditions beyond our control. We will always communicate honestly about your order status.</p></div></div></section>"),
     ("404", "home", "Page not found | Afrikaana", "404 page not found.", "<section><div class=\"wrap\" style=\"text-align:center;padding:80px 0\"><div style=\"font-family:var(--font-display);font-size:6rem;font-weight:700;line-height:1;margin-bottom:1rem;color:var(--clay)\">404</div><h1>Page not found</h1><p class=\"lede\" style=\"margin:0 auto\">The page you are looking for does not exist. It may have been moved or the address may be wrong.</p><div style=\"display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px\"><a href=\"/\" class=\"btn btn-primary\">Home</a><a href=\"/menu\" class=\"btn btn-outline\">Menu</a><a href=\"/contact\" class=\"btn btn-outline\">Contact</a></div></div></section>"),
 ]

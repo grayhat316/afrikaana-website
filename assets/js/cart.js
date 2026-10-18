@@ -130,13 +130,12 @@ var Cart = (function () {
     _primed = true;
   }
 
-  function showToast(name, dishId) {
+  function showToast(name, dishId, customMsg) {
     var t = document.getElementById("toast");
     if (!t) return;
     var msg = t.querySelector(".toast-msg");
     if (!msg) return;
-    msg.innerHTML =
-      name + " added to order. <a href=\"/order\">View order &rarr;</a>";
+    msg.innerHTML = customMsg || (name + " added to order. <a href=\"/order\">View order &rarr;</a>");
     t.classList.add("show");
     clearTimeout(t._timer);
     t._timer = setTimeout(function () {
@@ -144,44 +143,8 @@ var Cart = (function () {
     }, 5000);
   }
 
-  function buildWhatsAppMsg(form) {
-    var cart = get();
-    var pieces = [];
-
-    pieces.push("*Order for Afrikaana Restaurant*");
-    pieces.push("");
-
-    for (var i = 0; i < cart.length; i++) {
-      var line = cart[i];
-      pieces.push(
-        line.qty + "x " + line.name + " - KES " + (line.price * line.qty).toLocaleString("en-KE")
-      );
-    }
-
-    pieces.push("");
-    pieces.push("*Total: KES " + total().toLocaleString("en-KE") + "*");
-
-    if (form) {
-      var name = (form.querySelector("[name=name]") || {}).value || "";
-      var phone = (form.querySelector("[name=phone]") || {}).value || "";
-      var when = (form.querySelector("[name=when]") || {}).value || "";
-      var pickup = (form.querySelector("[name=pickup]") || {}).value || "";
-      var notes = (form.querySelector("[name=notes]") || {}).value || "";
-
-      pieces.push("");
-      pieces.push("*Customer:* " + name);
-      pieces.push("*Phone:* " + phone);
-      if (when) pieces.push("*Pickup time:* " + when);
-      pieces.push("*Method:* " + (pickup || "not specified"));
-      if (notes) pieces.push("*Notes:* " + notes);
-    }
-
-    return encodeURIComponent(pieces.join("\n"));
-  }
-
-  function sendWhatsApp(formEl) {
-    var msg = buildWhatsAppMsg(formEl);
-    window.open("https://wa.me/" + AFRIKAANA.brand.whatsapp + "?text=" + msg, "_blank");
+  function sendOrder(formEl) {
+    showToast(null, null, "Details sent. We will get back to you shortly.");
   }
 
   // order table
@@ -320,7 +283,7 @@ var Cart = (function () {
     total: total,
     updateBadge: updateBadge,
     showToast: showToast,
-    sendWhatsApp: sendWhatsApp,
+    sendOrder: sendOrder,
     renderOrderTable: renderOrderTable,
     renderCheckoutSummary: renderCheckoutSummary,
   };

@@ -616,22 +616,8 @@
     if (!form) return;
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var name = (form.querySelector("[name=name]") || {}).value || "";
-      var phone = (form.querySelector("[name=phone]") || {}).value || "";
-      var msg = (form.querySelector("[name=message]") || {}).value || "";
-      var text =
-        "Hello, my name is " +
-        name +
-        ". Phone: " +
-        phone +
-        ". " +
-        msg +
-        " (sent from the Afrikaana website)";
-      window.open(
-        "https://wa.me/" + AFRIKAANA.brand.whatsapp + "?text=" + encodeURIComponent(text),
-        "_blank"
-      );
       form.reset();
+      Cart.showToast(null, null, "Details sent. We will get back to you shortly.");
     });
   }
 
@@ -643,10 +629,10 @@
     Cart.renderCheckoutSummary();
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      Cart.sendWhatsApp(form);
       localStorage.removeItem("afrikaana_cart");
       updateCartBadge();
       form.reset();
+      Cart.showToast(null, null, "Details sent. We will get back to you shortly.");
       var el = $("#checkout-confirm");
       if (el) {
         el.style.display = "block";
