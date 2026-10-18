@@ -16,26 +16,56 @@
   // mobile drawer
 
   function initDrawer() {
-    var burger = $(".burger");
+    var burger = $(".nav-toggle");
     var drawer = $(".drawer");
+    var backdrop = $(".menu-backdrop");
     var closeBtn = $(".drawer-close");
-    var links = $$(".drawer a");
 
     if (!burger || !drawer) return;
 
-    burger.addEventListener("click", function () {
+    var open = function () {
       drawer.classList.add("open");
-      burger.setAttribute("aria-expanded", "true");
+      drawer.setAttribute("aria-hidden", "false");
+      if (backdrop) backdrop.classList.add("show");
+      document.body.style.overflow = "hidden";
+    };
+
+    var close = function () {
+      drawer.classList.remove("open");
+      drawer.setAttribute("aria-hidden", "true");
+      if (backdrop) backdrop.classList.remove("show");
+      document.body.style.overflow = "";
+    };
+
+    burger.addEventListener("click", open);
+    if (backdrop) backdrop.addEventListener("click", close);
+    if (closeBtn) closeBtn.addEventListener("click", close);
+    drawer.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", close);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+    });
+  }
+
+  function initChatFab() {
+    var chatMain = document.getElementById("chat-fab-main");
+    var chatMenu = document.getElementById("chat-fab-menu");
+    if (!chatMain || !chatMenu) return;
+
+    chatMain.addEventListener("click", function () {
+      var opening = chatMenu.hidden;
+      chatMenu.hidden = !opening;
+      chatMain.classList.toggle("open", opening);
+      chatMain.setAttribute("aria-expanded", String(opening));
     });
 
-    function close() {
-      drawer.classList.remove("open");
-      burger.setAttribute("aria-expanded", "false");
-    }
-
-    if (closeBtn) closeBtn.addEventListener("click", close);
-    links.forEach(function (a) {
-      a.addEventListener("click", close);
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest("#chat-fab") && !chatMenu.hidden) {
+        chatMenu.hidden = true;
+        chatMain.classList.remove("open");
+        chatMain.setAttribute("aria-expanded", "false");
+      }
     });
   }
 
@@ -651,6 +681,7 @@
 
   function init() {
     initDrawer();
+    initChatFab();
     initHeaderScroll();
     updateCartBadge();
 
